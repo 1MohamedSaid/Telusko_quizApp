@@ -1,0 +1,60 @@
+@GetMapping:
+Maps the Http "GET" requests on the specific handler method.
+Used instead of @RequestMapping(method=RequestMethod.GET)
+
+@PostMapping:(Create)
+Maps the Http "POST" requests on the specific handler method.
+Used instead of @RequestMapping(method=RequestMethod.POST)
+
+@PutMapping:(Create or Update)
+Maps the Http "PUT" requests on the specific handler method.
+Used instead of @RequestMapping(method=RequestMethod.PUT)
+
+@DeleteMapping:
+Maps the Http "DELETE" requests on the specific handler method.
+Used instead of @RequestMapping(method=RequestMethod.DELETE)
+
+@PatchMapping:
+Maps the Http "Patch" requests on the specific handler method.
+Used instead of @RequestMapping(method=RequestMethod.PATCH)
+---------------------------------------------------------------
+@RequestBody:
+Used to bind Http request with an object in a method parameter.internally it uses HTTP MessageConverters
+to convert the body of the request.When we annotate a method parameter with @RequestBody,spring binds
+the incoming Http request body to that parameter.
+
+@ResponseBody:
+Binds the method return value to the response body.
+ex:
+@Controller
+public class MyController {
+
+    @GetMapping("/hello")
+    @ResponseBody
+    public String hello() {
+        return "Hello, World!";
+    }
+}
+you don't need to explicitly type it if you are using @RestController.
+@RestController = @Controller + @ResponseBody
+
+@PathVariable:
+Used to extract values from the URI,mostly suitable with RESTful web service,where the URL contains a
+path variable.
+
+@RequestParam:
+Used to get "input" from users into the method parameters.
+
+@RequestHeader:
+is an annotation in Spring Framework used to extract values from HTTP request headers,
+and bind them to controller method parameters.
+It allows you to access specific header values sent with an HTTP request.
+
+@RestController:
+@Controller+@ResponseBody
+
+@RequestAttribute:
+It binds a method parameter to request attribute.It provides convenient access to the request attributes
+from a controller method.With the help of @RequestAttribute,we can access objects that are populated
+on the server side.
+
